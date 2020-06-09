@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 11, 2020 6:04:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="rady_app" name="net.foodordering.v1.dal.entity.xml.ConsumerAddress" optimistic-lock="version" table="consumer_address">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="net.foodordering.v1.dal.entity.xml.Area" fetch="select" name="area">
+      <column name="area_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="net.foodordering.v1.dal.entity.xml.Consumer" fetch="select" name="consumer">
+      <column name="consumer_id" not-null="true"/>
+    </many-to-one>
+    <property name="street" type="string">
+      <column name="street" not-null="true"/>
+    </property>
+    <property name="building" type="string">
+      <column name="building" not-null="true"/>
+    </property>
+    <property name="floor" type="string">
+      <column name="floor" not-null="true"/>
+    </property>
+    <property name="flat" type="string">
+      <column name="flat" not-null="true"/>
+    </property>
+    <property name="landmark" type="string">
+      <column name="landmark"/>
+    </property>
+    <property name="lat" type="big_decimal">
+      <column name="lat" precision="10" scale="8"/>
+    </property>
+    <property name="lng" type="big_decimal">
+      <column name="lng" precision="11" scale="8"/>
+    </property>
+    <property name="active" type="byte">
+      <column name="active" not-null="true"/>
+    </property>
+    <property name="label" type="string">
+      <column length="50" name="label"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="orders" table="order">
+      <key>
+        <column name="consumer_address_id" not-null="true"/>
+      </key>
+      <one-to-many class="net.foodordering.v1.dal.entity.xml.Order"/>
+    </set>
+  </class>
+</hibernate-mapping>

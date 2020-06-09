@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 11, 2020 6:04:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="rady_app" name="net.foodordering.v1.dal.entity.xml.Consumer" optimistic-lock="version" table="consumer">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="username" type="string">
+      <column length="50" name="username" not-null="true" unique="true"/>
+    </property>
+    <property name="password" type="string">
+      <column name="password" not-null="true"/>
+    </property>
+    <property name="fullname" type="string">
+      <column name="fullname" not-null="true"/>
+    </property>
+    <property name="phone" type="string">
+      <column length="20" name="phone" not-null="true" unique="true"/>
+    </property>
+    <property name="gender" type="string">
+      <column length="50" name="gender"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="consumerAddresses" table="consumer_address">
+      <key>
+        <column name="consumer_id" not-null="true"/>
+      </key>
+      <one-to-many class="net.foodordering.v1.dal.entity.xml.ConsumerAddress"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="orders" table="order">
+      <key>
+        <column name="consumer_id" unique="true"/>
+      </key>
+      <one-to-many class="net.foodordering.v1.dal.entity.xml.Order"/>
+    </set>
+  </class>
+</hibernate-mapping>

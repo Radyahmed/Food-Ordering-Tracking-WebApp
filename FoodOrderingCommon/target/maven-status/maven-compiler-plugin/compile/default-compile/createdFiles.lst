@@ -1,0 +1,14 @@
+net\foodordering\v1\common\bean\BranchBean.class
+net\foodordering\v1\common\bean\ProviderUserBean.class
+net\foodordering\v1\common\bean\ConsumerBean.class
+net\foodordering\v1\common\bean\DeliveryAreaBean.class
+net\foodordering\v1\common\bean\OrderBean.class
+net\foodordering\v1\common\bean\AreaBean.class
+net\foodordering\v1\common\bean\ProviderBean.class
+net\foodordering\v1\common\constant\RadyConstant.class
+net\foodordering\v1\common\bean\ConsumerAddressBean.class
+net\foodordering\v1\common\bean\ProductBean.class
+net\foodordering\v1\common\bean\CityBean.class
+net\foodordering\v1\common\bean\OrderItemBean.class
+net\foodordering\v1\common\bean\CategoryBean.class
+net\foodordering\v1\common\bean\AdminUserBean.class

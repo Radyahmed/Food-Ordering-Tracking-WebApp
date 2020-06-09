@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rady_app?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">rady_app</property>
+    <property name="hibernate.connection.password">rady_app</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <!--	<property name="connection.autocommit">true</property>-->
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">25</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <!--    hibernate mapping of xml -->
+    <!--    <mapping resource="net/rady/dal/config/xml/Area.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/Consumer.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/Provider.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/City.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/Order.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/Branch.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/AdminUser.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/Category.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/ConsumerAddress.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/ProviderUser.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/Product.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/DeliveryArea.hbm.xml"/>
+	<mapping resource="net/rady/dal/config/xml/OrderItem.hbm.xml"/>-->
+    <mapping class="net.foodordering.v1.dal.entity.annotation.City"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.Category"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.Consumer"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.Branch"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.DeliveryArea"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.ProviderUser"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.Provider"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.ConsumerAddress"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.Order"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.AdminUser"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.Area"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.OrderItem"/>
+    <mapping class="net.foodordering.v1.dal.entity.annotation.Product"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 11, 2020 6:04:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="rady_app" name="net.foodordering.v1.dal.entity.xml.Provider" optimistic-lock="version" table="provider">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nameAr" type="string">
+      <column length="50" name="name_ar" not-null="true" unique="true"/>
+    </property>
+    <property name="nameEn" type="string">
+      <column length="50" name="name_en" not-null="true" unique="true"/>
+    </property>
+    <property name="hotline" type="string">
+      <column length="20" name="hotline"/>
+    </property>
+    <property name="logoPathAr" type="string">
+      <column name="logo_path_ar"/>
+    </property>
+    <property name="logoPathEn" type="string">
+      <column name="logo_path_en"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="categories" table="category">
+      <key>
+        <column name="provider_id" not-null="true"/>
+      </key>
+      <one-to-many class="net.foodordering.v1.dal.entity.xml.Category"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="branches" table="branch">
+      <key>
+        <column name="provider_id" not-null="true"/>
+      </key>
+      <one-to-many class="net.foodordering.v1.dal.entity.xml.Branch"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="providerUsers" table="provider_user">
+      <key>
+        <column name="provider_id" not-null="true"/>
+      </key>
+      <one-to-many class="net.foodordering.v1.dal.entity.xml.ProviderUser"/>
+    </set>
+  </class>
+</hibernate-mapping>

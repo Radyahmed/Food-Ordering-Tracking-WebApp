@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 11, 2020 6:04:50 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="rady_app" name="net.foodordering.v1.dal.entity.xml.Category" optimistic-lock="version" table="category">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="net.foodordering.v1.dal.entity.xml.Provider" fetch="select" name="provider">
+      <column name="provider_id" not-null="true"/>
+    </many-to-one>
+    <property name="nameAr" type="string">
+      <column length="50" name="name_ar" not-null="true"/>
+    </property>
+    <property name="nameEn" type="string">
+      <column length="50" name="name_en" not-null="true"/>
+    </property>
+    <property name="descriptionAr" type="string">
+      <column name="description_ar"/>
+    </property>
+    <property name="descriptionEn" type="string">
+      <column name="description_en"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="products" table="product">
+      <key>
+        <column name="category_id" not-null="true"/>
+      </key>
+      <one-to-many class="net.foodordering.v1.dal.entity.xml.Product"/>
+    </set>
+  </class>
+</hibernate-mapping>
