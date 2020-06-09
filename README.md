@@ -1,9 +1,9 @@
 # Food-Ordering-Tracking-WebApp ( under construcation )
 Application for ordering food online like otlob.
-The project consists of 3 application:
-1- Consumer app: mobile app and web app.
-2- Provider app: a web app.
-3- Admin app: a web app.
+The project consists of 3 application:<br /> 
+1- Consumer app: mobile app and web app.<br /> 
+2- Provider app: a web app.<br /> 
+3- Admin app: a web app.<br /> 
 
 Technologies,Tools and Platforms are used:
 the common technologies:
